@@ -7,6 +7,7 @@ exports.handler = async (event) => {
     console.log(JSON.stringify(user, null, 2));
 
     const netlifyID = user.id;
+    const user_email = user.email;
 
 
     const customer = await stripe.customers.create({
@@ -27,16 +28,18 @@ exports.handler = async (event) => {
         },
         body : JSON.stringify({
             query: `
-            mutation($netlifyID : ID! $stripeID: ID!) {
-                createUser(data: {netlifyID: $netlifyID, stripeID :$stripeID}){
+            mutation($netlifyID : ID! $stripeID: ID! $email : String) {
+                createUser(data: {netlifyID: $netlifyID, stripeID :$stripeID, email :$email}){
                   netlifyID
                   stripeID
+                  email
                 }
               }
             `,
             variables : {
                 netlifyID,
                 stripeID,
+                email
             }
         })
     });
@@ -45,7 +48,7 @@ exports.handler = async (event) => {
     return {
         // every serverless function has to return status code and body
         statusCode : 200,
-        body : JSON.stringify({app_metadata : { roles: ['free-subscription']}}),
+        body : JSON.stringify({app_metadata : { roles: ['Free-Subscription']}}),
     
 }
 }

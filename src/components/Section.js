@@ -21,14 +21,16 @@ const Section = () => {
      console.log(user);
   const email = user.email;
   const id = user.id;
+  const roles = user.app_metadata.roles[0];
   const fullname = user.user_metadata.full_name;
   const token = user.token.access_token;
-  const userType = user.app_metadata.provider;
+  
   console.log(email);
   console.log(id);
   console.log(fullname);
   console.log(token);
-  console.log(userType);
+  
+  console.log(roles);
   
   }
  
