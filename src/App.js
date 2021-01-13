@@ -1,10 +1,9 @@
 import './App.css';
-
+import Section from './components/Section'
 function App() {
   return (
     <div className="App">
-      <h1>Coding Sikho</h1>
-      <h3>New Era of Learning</h3>
+      <Section/>
     </div>
   );
 }
