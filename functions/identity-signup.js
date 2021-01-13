@@ -32,14 +32,14 @@ exports.handler = async (event) => {
                 createUser(data: {netlifyID: $netlifyID, stripeID :$stripeID, email :$email}){
                   netlifyID
                   stripeID
-                  user_email
+                  email
                 }
               }
             `,
             variables : {
                 netlifyID,
                 stripeID,
-                email
+                user_email
             }
         })
     });
