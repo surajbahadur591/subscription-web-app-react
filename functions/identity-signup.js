@@ -7,7 +7,7 @@ exports.handler = async (event) => {
     console.log(JSON.stringify(user, null, 2));
 
     const netlifyID = user.id;
-    const user_email = user.email;
+    const email = user.email;
 
 
     const customer = await stripe.customers.create({
@@ -39,7 +39,7 @@ exports.handler = async (event) => {
             variables : {
                 netlifyID,
                 stripeID,
-                user_email
+                email
             }
         })
     });
