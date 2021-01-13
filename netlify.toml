@@ -1,4 +1,4 @@
 [build]
-publish = "src"
+publish = "build"
 functions = "functions"
 
