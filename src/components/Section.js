@@ -38,6 +38,8 @@ const Section = () => {
   
   // }
 
+  let billing_link;
+
   async function getLink(){
     const link = await fetch('.netlify/functions/create-manage-link', {
       method: "POST",
@@ -49,6 +51,7 @@ const Section = () => {
     }).then((res) => res.json())
     .then((link) => {
       console.log(link);
+      billing_link = link;
   });
   
     console.log(link);
@@ -57,7 +60,7 @@ const Section = () => {
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
   getLink();
- 
+ console.log("billing_link" + billing_link)
  
   return (
     <div>
