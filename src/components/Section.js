@@ -37,7 +37,7 @@ const Section = () => {
   }
 
   async function getLink(){
-    const link = await fetch('.netlify/functions/create-manage-link', {
+    await fetch('.netlify/functions/create-manage-link', {
       method: "POST",
       // mode: "no-cors",
       headers: {
@@ -54,7 +54,7 @@ const Section = () => {
   }
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
-  // getLink();
+  getLink();
  
  
   return (
