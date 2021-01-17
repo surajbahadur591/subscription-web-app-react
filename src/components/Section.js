@@ -66,7 +66,7 @@ const Section = () => {
   
  useEffect(() =>{
   getLink();
- })
+ }, [])
  
   return (
     <Router>
