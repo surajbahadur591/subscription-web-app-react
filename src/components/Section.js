@@ -19,7 +19,9 @@ const Section = () => {
   }
 
   const user = netlifyIdentity.currentUser();
-  let token=user.token.access_token;
+  const token=user.token.access_token;
+  console.log(token);
+
   // if (user){
   //    console.log(user);
   // const email = user.email;
