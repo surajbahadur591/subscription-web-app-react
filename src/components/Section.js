@@ -37,7 +37,7 @@ const Section = () => {
   }
 
   async function getLink(){
-    const link = await fetch('.netlify/functions/manage-subscription', {
+    const link = await fetch('.netlify/functions/create-manage-link', {
       method: "GET",
       mode: "no-cors",
       headers: {

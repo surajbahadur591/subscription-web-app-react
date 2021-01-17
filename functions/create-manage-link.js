@@ -20,7 +20,7 @@ exports.handler  = async (event, context) => {
       }`;
 
       // set of variables to be send to fauna.com
-      const variables = { netlifyID : user.sub}; 
+      const variables = { netlifyID : user.sub};
 
       // fetching the response from fauna 
       // faunafetch is function for easy query/mutation
