@@ -1,7 +1,11 @@
 import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
-const fetch = require('node-fetch');
-
+// const fetch = require('node-fetch');
+import fetch from 'node-fetch'
+import {Link, BrowserRouter as Router,
+  Switch,
+  Route,
+  useRouteMatch} from 'react-router-dom';
 // this is the main part of app
 
 // initial setup of netlify identity
@@ -38,7 +42,7 @@ const Section = () => {
   
   // }
 
-  let billing_link;
+  let billing_link="";
 
   async function getLink(){
     const link = await fetch('.netlify/functions/create-manage-link', {
@@ -55,7 +59,7 @@ const Section = () => {
   });
   
     console.log(link);
-    console.log("billing_link" + billing_link)
+    console.log("billing_link " + billing_link)
 
   }
 
@@ -64,15 +68,25 @@ const Section = () => {
  
  
   return (
+    <Router>
+
+    
     <div>
       <h1>Coding Sikho</h1>
       <h3> Welcome to new era of Learning</h3>
       <button onClick={handleLogin}>{user ? 'logout': 'login'}</button>
       <h1>{user && `welcome ${user.user_metadata.full_name}`} </h1>
       <h3>{user && `you have as ${user.app_metadata.roles[0]}`} </h3>
-      <button id="manage-sub"> Manage Subscription</button>
+
+      
+      {/* <button  id="manage-sub">{billing_link} Manage Subscription</button> */}
+
+      <a href={billing_link}>manage</a>
+
+      {/* <Link to="billing_link">Manage Subscription</Link> */}
       
     </div>
+    </Router>
   )
 }
 
