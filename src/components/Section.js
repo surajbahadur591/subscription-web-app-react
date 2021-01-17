@@ -36,8 +36,9 @@ const Section = () => {
   
   }
 
+  let billinglink = "";
   async function getLink(){
-    await fetch('.netlify/functions/create-manage-link', {
+    await fetch('https://subscription-web-app-react.netlify.app/.netlify/functions/create-manage-link', {
       method: "POST",
       // mode: "no-cors",
       headers: {
@@ -46,7 +47,8 @@ const Section = () => {
       },
     }).then((res) => res.json())
     .then((link) => {
-      console.log(link);
+      console.log("real link" + link);
+      billinglink = link;
   });
   
     // console.log(link);
@@ -55,6 +57,7 @@ const Section = () => {
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
   getLink();
+  console.log("billing link" + billinglink);
  
  
   return (
