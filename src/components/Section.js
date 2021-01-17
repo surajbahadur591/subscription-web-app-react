@@ -41,7 +41,7 @@ const Section = () => {
   // }
 
   let billing_link="";
-  useEffect(() =>{
+
   async function getLink(){
     const link = await fetch('.netlify/functions/create-manage-link', {
       method: "POST",
@@ -53,24 +53,21 @@ const Section = () => {
     }).then((res) => res.json())
     .then((link) => {
       console.log(link);
-      // billing_link = link;
+      billing_link = link;
       setTempLink(link)
   });
-
+  
     console.log(link);
     console.log("billing_link " + billing_link)
 
   }
 
-}  , [])
-
-
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
   
-
-  
+ useEffect(() =>{
+  setTempLink(billing_link)
+ })
  
-//  getLink();
   return (
     <Router>
 
