@@ -9,6 +9,7 @@ import { BrowserRouter as Router,} from 'react-router-dom';
 netlifyIdentity.init();
 
 const Section = () => {
+  const [ getTempLink, setTempLink] =  useState("");
 
   const handleLogin = () => {
     // for login/ signup pop up 
@@ -52,7 +53,8 @@ const Section = () => {
     }).then((res) => res.json())
     .then((link) => {
       console.log(link);
-      billing_link = link;
+      // billing_link = link;
+      setTempLink(link)
   });
   
     console.log(link);
@@ -78,7 +80,7 @@ const Section = () => {
       
       {/* <button  id="manage-sub">{billing_link} Manage Subscription</button> */}
 
-      <a href={billing_link}>manage</a>
+      <a href={getTempLink}>manage</a>
 
       {/* <Link to="billing_link">Manage Subscription</Link> */}
       
