@@ -55,12 +55,13 @@ const Section = () => {
   });
   
     console.log(link);
+    console.log("billing_link" + billing_link)
 
   }
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
   getLink();
- console.log("billing_link" + billing_link)
+ 
  
   return (
     <div>
