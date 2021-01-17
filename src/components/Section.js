@@ -42,6 +42,8 @@ const Section = () => {
 
   let billing_link="";
 
+  console.log(billing_link)
+
   async function getLink(){
     const link = await fetch('.netlify/functions/create-manage-link', {
       method: "POST",
@@ -64,9 +66,8 @@ const Section = () => {
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
   
- useEffect(() =>{
-  setTempLink(billing_link)
- })
+  getLink();
+  // setTempLink(billing_link)
  
   return (
     <Router>
