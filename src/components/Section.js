@@ -38,8 +38,8 @@ const Section = () => {
 
   async function getLink(){
     const link = await fetch('.netlify/functions/create-manage-link', {
-      method: "GET",
-      mode: "no-cors",
+      method: "POST",
+      // mode: "no-cors",
       headers: {
         // 'Access-Control-Allow-Origin' : "*",
         'Authorization': `Bearer ${token}`

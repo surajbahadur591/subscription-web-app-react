@@ -20,7 +20,7 @@ exports.handler  = async (event, context) => {
       }`;
 
       // set of variables to be send to fauna.com
-      const variables = { netlifyID : user.sub};
+      const variables = { netlifyID : user.sub}; 
 
       // fetching the response from fauna 
       // faunafetch is function for easy query/mutation
@@ -33,7 +33,7 @@ exports.handler  = async (event, context) => {
 
       const session = await stripe.billingPortal.sessions.create({
         customer: stripeID,
-        return_url: 'https://subscription-web-app-react.netlify.app/',
+        return_url: 'https://template-subscription-app.netlify.app/',
 
        });
 
