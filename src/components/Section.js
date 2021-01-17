@@ -44,7 +44,10 @@ const Section = () => {
         // 'Access-Control-Allow-Origin' : "*",
         'Authorization': `Bearer ${token}`
       },
-    })
+    }).then((res) => res.json())
+    .then((link) => {
+      console.log(link);
+  });
   
     console.log(link);
 
