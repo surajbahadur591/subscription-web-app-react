@@ -8,7 +8,7 @@ exports.handler = async (event) => {
 
     const netlifyID = user.id;
     const email = user.email;
-    const roles = user.app_metadata.roles[0];
+    const roles = user.role;
     const fullname = user.user_metadata.full_name;
 
 
