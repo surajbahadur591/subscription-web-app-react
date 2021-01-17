@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 // const fetch = require('node-fetch');
 import fetch from 'node-fetch'
