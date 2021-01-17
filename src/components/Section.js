@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 // const fetch = require('node-fetch');
 import fetch from 'node-fetch'
@@ -63,8 +63,10 @@ const Section = () => {
   }
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
+  
+ useEffect(() =>{
   getLink();
- 
+ })
  
   return (
     <Router>
