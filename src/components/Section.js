@@ -36,17 +36,22 @@ const Section = () => {
   
   }
 
+  async function getLink(){
+    const link = await fetch('.netlify/functions/manage-subscription', {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        // 'Access-Control-Allow-Origin' : "*",
+        'Authorization': `Bearer ${token}`
+      },
+    })
+  
+    console.log(link);
 
- const link =  fetch('.netlify/functions/manage-subscription', {
-    method: "GET",
-    mode: "no-cors",
-    headers: {
-      // 'Access-Control-Allow-Origin' : "*",
-      'Authorization': `Bearer ${token}`
-    },
-  })
+  }
 
-  console.log(link);
+  getLink();
+ 
  
   return (
     <div>
