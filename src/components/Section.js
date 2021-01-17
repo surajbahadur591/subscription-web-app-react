@@ -38,7 +38,7 @@ const Section = () => {
 
   let billinglink = "";
   async function getLink(){
-    await fetch('https://subscription-web-app-react.netlify.app/.netlify/functions/create-manage-link', {
+    await fetch('.netlify/functions/create-manage-link', {
       method: "POST",
       // mode: "no-cors",
       headers: {
