@@ -70,7 +70,7 @@ const Section = () => {
   // setTempLink(billing_link)
  
   return (
-    <Router>
+    
 
     
     <div>
@@ -88,7 +88,7 @@ const Section = () => {
       {/* <Link to="billing_link">Manage Subscription</Link> */}
       
     </div>
-    </Router>
+    
   )
 }
 
