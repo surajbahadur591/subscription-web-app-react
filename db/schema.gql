@@ -3,6 +3,8 @@ type User {
   netlifyID: ID!
   stripeID: ID!
   email: String
+  roles: String
+  fullname: String
 }
 
 type Query {

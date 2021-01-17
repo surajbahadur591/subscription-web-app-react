@@ -1,6 +1,8 @@
 import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 
+// this is the main part of app
+
 // initial setup of netlify identity
 netlifyIdentity.init();
 

@@ -8,6 +8,8 @@ exports.handler = async (event) => {
 
     const netlifyID = user.id;
     const email = user.email;
+    const roles = user.app_metadata.roles[0];
+    const fullname = user.user_metadata.full_name;
 
 
     const customer = await stripe.customers.create({
@@ -28,21 +30,26 @@ exports.handler = async (event) => {
         },
         body : JSON.stringify({
             query: `
-            mutation($netlifyID : ID! $stripeID: ID! $email : String) {
-                createUser(data: {netlifyID: $netlifyID, stripeID :$stripeID, email :$email}){
+            mutation($netlifyID : ID! $stripeID: ID! $email : String $roles : String $fullname : String) {
+                createUser(data: {netlifyID: $netlifyID, stripeID :$stripeID, email :$email, roles : $roles, fullname : $fullname}){
                   netlifyID
                   stripeID
                   email
+                  fullname
+                  roles
                 }
               }
             `,
             variables : {
                 netlifyID,
                 stripeID,
-                email
+                email,
+                roles,
+                fullname
             }
         })
     });
+    console.log(response);
 
 
     return {
