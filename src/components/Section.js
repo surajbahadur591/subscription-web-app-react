@@ -2,10 +2,7 @@ import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 // const fetch = require('node-fetch');
 import fetch from 'node-fetch'
-import {Link, BrowserRouter as Router,
-  Switch,
-  Route,
-  useRouteMatch} from 'react-router-dom';
+import { BrowserRouter as Router,} from 'react-router-dom';
 // this is the main part of app
 
 // initial setup of netlify identity
