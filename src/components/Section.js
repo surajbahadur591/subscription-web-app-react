@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 // const fetch = require('node-fetch');
 import fetch from 'node-fetch'
-import { BrowserRouter as Router,} from 'react-router-dom';
+// import { BrowserRouter as Router,} from 'react-router-dom';
 // this is the main part of app
 
 // initial setup of netlify identity
 netlifyIdentity.init();
 
 const Section = () => {
-  const [ getTempLink, setTempLink] =  useState("");
+  // const [ getTempLink, setTempLink] =  useState("");
 
   const handleLogin = () => {
     // for login/ signup pop up 
@@ -56,7 +56,7 @@ const Section = () => {
     .then((link) => {
       console.log(link);
       billing_link = link;
-      setTempLink(link)
+      // setTempLink(link)
   });
   
     console.log(link);
@@ -83,7 +83,7 @@ const Section = () => {
       
       {/* <button  id="manage-sub">{billing_link} Manage Subscription</button> */}
 
-      <a href={getTempLink}>manage</a>
+      <a href={billing_link}>manage</a>
 
       {/* <Link to="billing_link">Manage Subscription</Link> */}
       
