@@ -52,12 +52,12 @@ const Section = () => {
   });
   
     // console.log(link);
-
+    console.log("billing link" + billinglink);
   }
 
   // document.querySelector('#manage-sub').addEventListener('click', getLink);
   getLink();
-  console.log("billing link" + billinglink);
+  
  
  
   return (
