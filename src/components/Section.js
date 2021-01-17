@@ -49,11 +49,12 @@ const Section = () => {
       console.log(link);
   });
   
-    console.log(link);
+    // console.log(link);
 
   }
 
-  getLink();
+  // document.querySelector('#manage-sub').addEventListener('click', getLink);
+  // getLink();
  
  
   return (
@@ -63,6 +64,7 @@ const Section = () => {
       <button onClick={handleLogin}>{user ? 'logout': 'login'}</button>
       <h1>{user && `welcome ${user.user_metadata.full_name}`} </h1>
       <h3>{user && `you have as ${user.app_metadata.roles[0]}`} </h3>
+      <button id="manage-sub"> Manage Subscription</button>
       
     </div>
   )
