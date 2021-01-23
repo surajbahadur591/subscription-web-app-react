@@ -4,7 +4,8 @@ import netlifyIdentity from 'netlify-identity-widget'
 import fetch from 'node-fetch'
 // import { BrowserRouter as Router,} from 'react-router-dom';
 // this is the main part of app
-
+// import {BrowserRouter, Route, Switch} from 'react'
+import {useState, useEffect} from 'react'
 // initial setup of netlify identity
 netlifyIdentity.init();
 
@@ -24,25 +25,22 @@ const Section = () => {
   const token=user.token.access_token;
   console.log(token);
 
-  // if (user){
-  //    console.log(user);
-  // const email = user.email;
-  // const id = user.id;
-  // const roles = user.app_metadata.roles[0];
-  // const fullname = user.user_metadata.full_name;
-  // token = user.token.access_token;
   
-  // console.log(email);
-  // console.log(id);
-  // console.log(fullname);
-  // console.log(token);
-  // console.log(roles);
-  
-  // }
 
-  let billing_link="";
+  const [billingLink, setBillingLink] = useState("")
 
-  console.log(billing_link)
+  useEffect( ()=> {
+    const getLinkBill = async() => {
+      const billingLinkFromServer = await getLink()
+      setBillingLink(billingLinkFromServer)
+    }
+
+
+    getLinkBill();
+
+  }, [])
+
+  console.log(billingLink)
 
   async function getLink(){
     const link = await fetch('.netlify/functions/create-manage-link', {
@@ -55,12 +53,11 @@ const Section = () => {
     }).then((res) => res.json())
     .then((link) => {
       console.log(link);
-      billing_link = link;
       // setTempLink(link)
   });
   
     console.log(link);
-    console.log("billing_link " + billing_link)
+    console.log("billing_link " + billingLink)
 
   }
 
@@ -71,7 +68,6 @@ const Section = () => {
  
   return (
     
-
     
     <div>
       <h1>Coding Sikho</h1>
@@ -83,11 +79,15 @@ const Section = () => {
       
       {/* <button  id="manage-sub">{billing_link} Manage Subscription</button> */}
 
-      <a href={billing_link}>manage</a>
+      {/* <Switch>
+        <Route path=""> manage</Route>
+      </Switch> */}
+      <a href={billingLink}>manage</a>
 
       {/* <Link to="billing_link">Manage Subscription</Link> */}
       
     </div>
+    
     
   )
 }
