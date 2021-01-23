@@ -35,10 +35,9 @@ const Section = () => {
       setBillingLink(billingLinkFromServer)
     }
 
-
     getLinkBill();
 
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   console.log(billingLink)
 
